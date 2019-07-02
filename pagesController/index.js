@@ -19,7 +19,32 @@ module.exports = {
   getDetailPage(req,res) {
     res.render('detail')
   },
+
+  // 后台页面
   getAdminIndexPage(req,res) {
     res.render('admin/index.ejs')
-  }
+  },
+  getCategoriesPage(req,res) {
+    res.render('admin/categories')
+  }, getCommentsPage(req, res) {
+    res.render('admin/comments')
+  }, getloginPage(req, res) {
+    res.render('admin/login')
+  }, getNen_menusPage(req, res) {
+    res.render('admin/nav-menus')
+  }, getPasswor_resetdPage(req, res) {
+    res.render('admin/password-reset')
+  }, getPost_addPage(req, res) {
+    res.render('admin/post-add')
+  }, getPostsPage(req, res) {
+    res.render('admin/posts')
+  }, getProfilePage(req, res) {
+    res.render('admin/profile')
+  }, getSettingsPage(req, res) {
+    res.render('admin/settings')
+  }, getSlidesPage(req, res) {
+    res.render('admin/slides')
+  }, getUsersPage(req, res) {
+    res.render('admin/users')
+  },
 }
