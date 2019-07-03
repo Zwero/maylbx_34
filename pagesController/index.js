@@ -1,13 +1,4 @@
-// 引入模块
-// const fs = require('fs')
-// // 读取前台数据
-// module.exports.getIndexPage = (req,res)=>{
-//   fs.readFile(--__dirname + "../views/index.html",(err,data)=>{
-//     if (err) res.end('404')
-//     res.end(data)
-//   })
-// }
-// module.exports.getListpage
+// 向外暴露数据
 module.exports = {
   // 显示index页面
   getIndexPage(req,res) {

@@ -1,5 +1,7 @@
 // 引入模块
 const pagesController = require('../pagesController')
+// 引入psots模块
+const postsController = require('../pagesController/postsController.js')
 const express = require('express')
 
 const router = express.Router()
@@ -23,6 +25,9 @@ router.get('/', pagesController.getIndexPage)
   .get('/admin/settings', pagesController.getSettingsPage)
   .get('/admin/slides', pagesController.getSlidesPage)
   .get('/admin/users', pagesController.getUsersPage)
+
+  // 先写后端的
+  .get('/getPosts', postsController.getPostsSeverPage)
 
 
 module.exports = router
