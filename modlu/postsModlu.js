@@ -10,15 +10,18 @@ const connection = mysql.createConnection({
   dateStrings: true
 })
 // 3. 打开连接
-
+// 获取服务器中的需求的数据
 exports.getpostsModlu = (params, callback) => {
-  var sql = `SELECT posts.id,posts.title,posts.status,users.id,users.nickname,categories.id,categories.name
+  // sql 语句
+  var sql = `SELECT posts.id,posts.title,posts.status,posts.created,users.id,users.nickname,categories.id,categories.name
 	FROM posts
 	INNER JOIN users on posts.user_id = users.id
   INNER JOIN categories on posts.category_id = categories.id
+  limit ${(params.pagenum - 1) * params.pagesize},${params.pagesize}
   `
+  // 判断 数据  并返回数据
   connection.query(sql, (err, results) => {
-    console.log(err);
+    // console.log(err);
     if (err) callback(err)
     callback(null, results)
   })
