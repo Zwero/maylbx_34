@@ -21,7 +21,6 @@ exports.getpostsModlu = (params, callback) => {
   `
   // 判断 数据  并返回数据
   connection.query(sql, (err, results) => {
-    // console.log(err);
     if (err) callback(err)
     callback(null, results)
   })

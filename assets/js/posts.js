@@ -30,7 +30,6 @@ $(function () {
     dataType: 'json',
     // 服务器的数据渲染到页面
     success: function (res) {
-      console.log(res)
       var html = template('postListTemp', res)
       $('tbody').html(html)
     }
