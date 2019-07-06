@@ -28,6 +28,7 @@ router.get('/', pagesController.getIndexPage)
 
   // 先写后端的
   .get('/getPosts', postsController.getPostsSeverPage)
+  // .get('/delpost')
 
 
 module.exports = router

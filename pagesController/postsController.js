@@ -5,6 +5,7 @@ var postsModlu = require('../modlu/postsModlu.js')
 module.exports = {
   getPostsSeverPage(req,res) {
      obj = req.query
+    //  console.log(obj);
 // 调用方法取得数据库所有文章列表
     postsModlu.getpostsModlu(obj,(err,data)=>{
       

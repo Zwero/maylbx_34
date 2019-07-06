@@ -12,16 +12,28 @@ const connection = mysql.createConnection({
 // 3. 打开连接
 // 获取服务器中的需求的数据
 exports.getpostsModlu = (params, callback) => {
-  // sql 语句
-  var sql = `SELECT posts.id,posts.title,posts.status,posts.created,users.id,users.nickname,categories.id,categories.name
-	FROM posts
-	INNER JOIN users on posts.user_id = users.id
-  INNER JOIN categories on posts.category_id = categories.id
-  limit ${(params.pagenum - 1) * params.pagesize},${params.pagesize}
-  `
-  // 判断 数据  并返回数据
-  connection.query(sql, (err, results) => {
-    if (err) callback(err)
-    callback(null, results)
+  // 1.创建sql语句
+  var sql = `select posts.id,posts.slug,posts.title,posts.feature,posts.created,posts.content,posts.status,users.id,users.nickname,categories.name
+    from posts
+    inner join users on posts.user_id = users.id
+    inner join categories on posts.category_id = categories.id
+    limit ${(params.pagenum - 1) * params.pagesize},${params.pagesize}`
+  connection.query(sql, (err, results) => {                               
+    // console.log(results);
+    if (err) {
+      callback(err)
+    } else {
+      // 这条语句 可以获取posts表中的总记录数
+      sql = 'select count(*) cnt from posts'
+      connection.query(sql, (err1, data1) => {
+        if (err1) {
+          callback(err1)
+        } else {
+          // 我们又需要返回查询出的数据，又需要返回查询出总记录数
+          callback(null, { result: results, total: data1[0].cnt })
+          // console.log(callback);
+        }
+      })
+    }
   })
 }
