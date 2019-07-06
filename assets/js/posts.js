@@ -49,5 +49,23 @@ $(function () {
     })
   }
 
+  // 删除数据
+  $('tbody').on('click', '.btndel', function () {
+    if (window.confirm('删了吧')) {
+      var id = $(this).data('id')
+      console.log('AJAX', id);
+      $.ajax({
+        type: 'get',
+        url: '/getDeleteId',
+        data: {id: id},
+        success: (res) => {
+          if (res.code == 200) {
+            init()
+          }
+        }
+      })
+    }
+  })
+
 })
   

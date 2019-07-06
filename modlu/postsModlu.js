@@ -13,12 +13,13 @@ const connection = mysql.createConnection({
 // 获取服务器中的需求的数据
 exports.getpostsModlu = (params, callback) => {
   // 1.创建sql语句
-  var sql = `select posts.id,posts.slug,posts.title,posts.feature,posts.created,posts.content,posts.status,users.id,users.nickname,categories.name
-    from posts
-    inner join users on posts.user_id = users.id
-    inner join categories on posts.category_id = categories.id
+  var sql = `select posts.id,posts.slug,posts.title,posts.feature,posts.created,posts.content,posts.status,users.id uid,users.nickname,categories.name
+  from posts
+  inner join users on posts.user_id = users.id
+  inner join categories on posts.category_id = categories.id
+  where 1=1
     limit ${(params.pagenum - 1) * params.pagesize},${params.pagesize}`
-  connection.query(sql, (err, results) => {                               
+  connection.query(sql, (err, results) => {
     // console.log(results);
     if (err) {
       callback(err)
@@ -35,5 +36,13 @@ exports.getpostsModlu = (params, callback) => {
         }
       })
     }
+  })
+}
+exports.getDeleteId = (id, callback) => {
+  // 1. 创建sql语句
+  let sql = 'delete from posts where id = ' + id
+  connection.query(sql, (err,data) => {
+    if (err) callback(err)
+    callback(null)
   })
 }
