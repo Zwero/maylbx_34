@@ -28,7 +28,11 @@ router.get('/', pagesController.getIndexPage)
 
   // 先写后端的
   .get('/getPosts', postsController.getPostsSeverPage)
+  // 删除文章
   .get('/getDeleteId', postsController.getDeleteId)
+  // 筛选文章
+  .get('/getPostsScreen', postsController.getPostsScreen)
 
 
+  
 module.exports = router

@@ -6,7 +6,7 @@ $(function () {
   var pagesize = 2
   // 发现请求, 请求所有文章数据
   init({})
-  function init (query) {
+  function init(query) {
     $.ajax({
       // 方式
       type: 'get',
@@ -29,8 +29,23 @@ $(function () {
       }
     })
   }
- 
- // 实现分页
+  // 用户数据的筛选
+  // 实现用户数据的筛选
+  $('.btn-search').on('click', function (e) {
+    e.preventDefault()
+    // 重点是获取用户数据，你也可以使用全局变量
+    var query = {}
+    // 判断用户有没有选择指定的筛选条件
+    if ($('.cateSelector').val() != 'all') {
+      query.cate = $('.cateSelector').val()
+    }
+    if ($('.statuSelector').val() != 'all') {
+      query.statu = $('.statuSelector').val()
+    }
+    // 发起请求
+    init(query)
+  });
+  // 实现分页
   function setPage(count) {
     $(".pagination").bootstrapPaginator({
       //设置版本号
@@ -57,7 +72,7 @@ $(function () {
       $.ajax({
         type: 'get',
         url: '/getDeleteId',
-        data: {id: id},
+        data: { id: id },
         success: (res) => {
           if (res.code == 200) {
             init()
@@ -65,7 +80,24 @@ $(function () {
         }
       })
     }
-  })
+  });
+
+  // 自调用函数分类数据的加载
+  (function () {
+    $.ajax({
+      url: '/getPostsScreen',
+      type: 'get',
+      success: function (res) {
+        // 生成数据的动态结构
+        var html = '<option value = "all" > 所有分类 </option>'
+        for (var i = 0; i < res.data.length; i++) {
+          html += `<option value="${res.data[i].id}">${res.data[i].name}</option>`
+        }
+        $('.cateSelector').html(html)
+      }
+    })
+  })()
+
+
 
 })
-  
