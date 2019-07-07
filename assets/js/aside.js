@@ -17,7 +17,7 @@ $(function () {
   }
   var menu_settings = $('#menu-settings')
   if (routername == 'nav-menus' || routername == 'slides' || routername == 'settings') {
-    menu_settings.attr('aria-expanded', true)
+    menu_settings.attr('aria-expanded', true).addClass('in')
   }
   // 添加 active样式: 排他
   $('li').removeClass('active')
