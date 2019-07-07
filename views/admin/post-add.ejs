@@ -1,9 +1,7 @@
-<%- include('./layout/admin_header.ejs')%>
-
+<%- include('./layout/admin_header.ejs');%>
 
   <div class="main">
-    <%- include('./layout/admin_navbar.ejs')%>
->
+    <%- include('./layout/admin_navbar.ejs');%>
     <div class="container-fluid">
       <div class="page-title">
         <h1>写文章</h1>
@@ -32,8 +30,10 @@
           <div class="form-group">
             <label for="feature">特色图像</label>
             <!-- show when image chose -->
+            <input type="hidden" name="feature"  id='userimg'>
             <img class="help-block thumbnail" style="display: none">
-            <input id="feature" class="form-control" name="feature" type="file">
+            <!-- 不是每个表单元素都会value属性，如file就没有 -->
+            <input id="feature" class="form-control" type="file" multiple>
           </div>
           <div class="form-group">
             <label for="category">所属分类</label>
@@ -60,14 +60,8 @@
       </form>
     </div>
   </div>
+  <%- include('./layout/admin_aside.ejs');%>
 
-  <%- include('./layout/admin_aside.ejs')%>
-
-
-  <script src="../assets/vendors/jquery/jquery.js"></script>
-  <script src="../assets/vendors/bootstrap/js/bootstrap.js"></script>
-  <script src="/assets/js/postsAdd.js"></script>
-  <script src="../../assets/vendors/ckeditor/ckeditor.js"></script>
-  <script>NProgress.done()</script>
-</body>
-</html>
+  <%- include('./layout/admin_footer.ejs');%>
+  <script src="/assets/vendors/ckeditor/ckeditor.js"></script>
+  <script src="../../assets/js/postsAdd.js"></script>

@@ -2,6 +2,8 @@
 const pagesController = require('../pagesController')
 // 引入psots模块
 const postsController = require('../pagesController/postsController.js')
+// 引入文件上传模块
+const uploadController = require('../pagesController/uploadController.js')
 const express = require('express')
 
 const router = express.Router()
@@ -32,6 +34,9 @@ router.get('/', pagesController.getIndexPage)
   .get('/getDeleteId', postsController.getDeleteId)
   // 筛选文章
   .get('/getPostsScreen', postsController.getPostsScreen)
+
+  // 文件上传
+  .post('/uploadFile',uploadController.uploadFile)
 
 
   
