@@ -1,11 +1,12 @@
 // 引入模块
 var postsModlu = require('../modlu/postsModlu.js')
 var cateModule = require('../modlu/cateModule.js')
+var userModule = require('../modlu/userModule.js')
 
 // 向外暴露
 module.exports = {
   getPostsSeverPage(req, res) {
-    obj = req.query
+    // var obj = req.query
     // 调用方法取得数据库所有文章列表
     postsModlu.getpostsModlu(obj, (err, data) => {
 

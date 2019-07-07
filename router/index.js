@@ -4,6 +4,8 @@ const pagesController = require('../pagesController')
 const postsController = require('../pagesController/postsController.js')
 // 引入文件上传模块
 const uploadController = require('../pagesController/uploadController.js')
+// 用户登录模块
+const userController = require('../pagesController/userController.js')
 const express = require('express')
 
 const router = express.Router()
@@ -37,6 +39,9 @@ router.get('/', pagesController.getIndexPage)
 
   // 文件上传
   .post('/uploadFile',uploadController.uploadFile)
+  
+  // 用户登录
+  .get('/login',userController.login)
 
 
   
