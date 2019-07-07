@@ -37,7 +37,6 @@ exports.getpostsModlu = (params, callback) => {
     if (err) {
       callback(err)
     } else {
-      console.log(results)
       // 这条语句 可以获取posts表中的总记录数
       sql = 'select count(*) cnt from posts'
       connection.query(sql, (err1, data1) => {

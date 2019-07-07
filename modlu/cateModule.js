@@ -13,7 +13,6 @@ const connection = mysql.createConnection({
 exports.getAllCateList = (callback) => {
   var sql = 'select * from categories'
   connection.query(sql,(err,results) => {
-    console.log(results);
     if (err) callback(err)
     callback(null,results)
   })

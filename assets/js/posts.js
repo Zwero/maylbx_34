@@ -68,7 +68,6 @@ $(function () {
   $('tbody').on('click', '.btndel', function () {
     if (window.confirm('删了吧')) {
       var id = $(this).data('id')
-      console.log('AJAX', id);
       $.ajax({
         type: 'get',
         url: '/getDeleteId',

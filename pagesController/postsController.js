@@ -6,8 +6,6 @@ var cateModule = require('../modlu/cateModule.js')
 module.exports = {
   getPostsSeverPage(req, res) {
     obj = req.query
-    // console.log(obj);
-    //  console.log(obj);
     // 调用方法取得数据库所有文章列表
     postsModlu.getpostsModlu(obj, (err, data) => {
 
@@ -31,7 +29,6 @@ module.exports = {
     var id = req.query.id
 
     // var id = 1
-    console.log(' 这是个', id);
     // 调用modlu模块
     postsModlu.getDeleteId(id, (err, data) => {
       if (err) {
