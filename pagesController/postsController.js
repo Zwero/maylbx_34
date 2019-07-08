@@ -6,7 +6,7 @@ var userModule = require('../modlu/userModule.js')
 // 向外暴露
 module.exports = {
   getPostsSeverPage(req, res) {
-    // var obj = req.query
+    var obj = req.query
     // 调用方法取得数据库所有文章列表
     postsModlu.getpostsModlu(obj, (err, data) => {
 

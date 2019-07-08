@@ -41,7 +41,8 @@ router.get('/', pagesController.getIndexPage)
   .post('/uploadFile',uploadController.uploadFile)
   
   // 用户登录
-  .get('/login',userController.login)
+  .post('/login',userController.login)
+
 
 
   
