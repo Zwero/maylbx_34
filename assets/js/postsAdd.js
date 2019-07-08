@@ -31,7 +31,6 @@ $(function () {
   })
   // 文件上传
   $('#feature').on('change',function(){
-    // console.log(123);
     // files : 可以获取当前所有被选择的文件对象,他是一个数组,每一个文件都是一个对象
     var myfile = document.querySelector('#feature').files[0]
     // 2. 创建formdata

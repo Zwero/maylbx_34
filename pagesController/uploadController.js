@@ -3,7 +3,6 @@
 var formidable = require('formidable')
 var path = require('path')
 exports.uploadFile = (req, res) => {
-  // console.log(123);
 // 用formidable 上传
 // 创建文件上传对象
 var form = new formidable.IncomingForm()
