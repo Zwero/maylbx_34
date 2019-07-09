@@ -31,6 +31,7 @@ router.get('/', pagesController.getIndexPage)
   .get('/admin/users', pagesController.getUsersPage)
 
   // 先写后端的
+  // 数据渲染 
   .get('/getPosts', postsController.getPostsSeverPage)
   // 删除文章
   .get('/getDeleteId', postsController.getDeleteId)
@@ -42,7 +43,6 @@ router.get('/', pagesController.getIndexPage)
   
   // 用户登录
   .post('/login',userController.login)
-
 
 
   

@@ -1,0 +1,9 @@
+$(function(){
+  $.ajax({
+    url:'/getPostsScreen',
+    dataType:'json',
+    success:function(res){
+      $('tbody').html(template('cateTemp',res))
+    }
+  })
+})
